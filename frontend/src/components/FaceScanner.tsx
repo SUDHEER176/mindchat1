@@ -15,7 +15,7 @@ interface FaceScannerProps {
 }
 
 const ENV_API_BASE_URL = (import.meta as any).env?.VITE_API_BASE_URL?.toString()?.replace(/\/+$/, "");
-const DEFAULT_PROD_API_BASE_URL = "https://mindchat-1.onrender.com";
+const DEFAULT_PROD_API_BASE_URL = "https://mindchat1.onrender.com";
 const DEFAULT_DEV_API_BASE_URL = "http://127.0.0.1:5000";
 
 const DEFAULT_API_BASE_URL =

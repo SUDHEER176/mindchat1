@@ -348,7 +348,7 @@ CREATE TABLE public.profiles (
 const API_BASE_URL =
   VITE_API_BASE_URL ||                     // .env override (highest priority)
   (localhost) ? "http://localhost:5000"    // local dev
-             : "https://mindchat-1.onrender.com"; // production fallback
+             : "https://mindchat1.onrender.com"; // production fallback
 ```
 
 ### `streamAnalyzeAndRespond()`
