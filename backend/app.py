@@ -66,6 +66,24 @@ except Exception as e:
 app = Flask(__name__)
 CORS(app)
 
+# --- Twilio & Supabase Configuration ---
+OTP_STORE = {}
+
+SUPABASE_URL = os.environ.get("SUPABASE_URL")
+SUPABASE_SERVICE_ROLE = os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or os.environ.get("SUPABASE_SERVICE_ROLE")
+
+TWILIO_FROM = os.environ.get("TWILIO_FROM_NUMBER") or os.environ.get("TWILIO_FROM")
+twilio_client = None
+if TwilioClient:
+    twilio_sid = os.environ.get("TWILIO_ACCOUNT_SID")
+    twilio_token = os.environ.get("TWILIO_AUTH_TOKEN")
+    if twilio_sid and twilio_token:
+        try:
+            twilio_client = TwilioClient(twilio_sid, twilio_token)
+            print("[Twilio] Initialized successfully.")
+        except Exception as e:
+            print(f"[Twilio] Init failed: {e}")
+
 # --- Configuration & Model Loader ---
 # Define your 3 models here. 
 # Once you have the files (e.g., .pkl, .pt, or API keys), you can replace these placeholders with real loading logic.
